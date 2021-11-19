@@ -38,7 +38,7 @@ public:
         auto temp2 = this->vertexes.find(end);
         if(temp1 != this->vertexes.end() && temp2 != this->vertexes.end()){
             for(auto it = temp1->second->edges.begin(); it != temp1->second->edges.end();it++){
-                if(it->vertexes[1] == temp2->second){
+                if((*it)->vertexes[1] == temp2->second){
                     temp1->second->edges.erase(it);
                     return true;
                 }
@@ -61,13 +61,13 @@ public:
         return false;      
     }
 
-    TE &operator()(string start, string end){
+    TE operator()(string start, string end){
         auto temp1 = this->vertexes.find(start);
         auto temp2 = this->vertexes.find(end);
         if(temp1 != this->vertexes.end() && temp2 != this->vertexes.end()){
             for(auto it = temp1->second->edges.begin(); it != temp1->second->edges.end();it++){
-                if(it->vertexes[1] == temp2->second){
-                    return it->weight;
+                if((*it)->vertexes[1] == temp2->second){
+                    return (*it)->weight;
                 }
             }
         }
@@ -96,8 +96,8 @@ public:
         temp.insert_or_assign(it1->second->data,it1->second->data);
         auto it2 = it1->second->edges.begin();
         while(it2 != it1->second->edges.end()){
-            if(temp.find(it2->vertexes[1]->data) == temp.end()){              
-                temp.insert_or_assign(it2->vertexes[1]->data,it2->vertexes[1]->data);
+            if(temp.find((*it2)->vertexes[1]->data) == temp.end()){              
+                temp.insert_or_assign((*it2)->vertexes[1]->data,(*it2)->vertexes[1]->data);
             }
             it2++;                    
         }
@@ -107,8 +107,8 @@ public:
             if(temp.find(it1->second->data) == temp.end()){
                 it2 = it1->second->edges.begin();
                 while(it2 != it1->second->edges.end()){
-                    if(temp.find(it2->vertexes[1]->data) != temp.end()){              
-                        temp.insert_or_assign(it2->vertexes[0]->data,it2->vertexes[0]->data);
+                    if(temp.find((*it2)->vertexes[1]->data) != temp.end()){              
+                        temp.insert_or_assign((*it2)->vertexes[0]->data,(*it2)->vertexes[0]->data);
                         break;                       
                     }
                     it2++;                    
@@ -117,21 +117,21 @@ public:
             if(temp.find(it1->second->data) != temp.end()){
                 it2 = it1->second->edges.begin();
                 while(it2 != it1->second->edges.end()){
-                    if(temp.find(it2->vertexes[1]->data) == temp.end()){              
-                        temp.insert_or_assign(it2->vertexes[1]->data,it2->vertexes[1]->data);
+                    if(temp.find((*it2)->vertexes[1]->data) == temp.end()){              
+                        temp.insert_or_assign((*it2)->vertexes[1]->data,(*it2)->vertexes[1]->data);
                     }
                     it2++;                    
                 }
             }                       
             it1++;
         }
-        return (temp.size == s);
+        return (temp.size() == s);
     }
 
     bool isStronglyConnected(){
         unordered_map<TV,TV> temp;
         queue<Vertex<TV,TE>*> q;
-        Vertex<TV,TE> aux;
+        Vertex<TV,TE>* aux;
         int s = this->vertexes.size();
         for(auto it1 = this->vertexes.begin(); it1 != this->vertexes.end(); it1++){
             q.push(it1->second);
@@ -141,9 +141,9 @@ public:
                 q.pop();
                 auto it2 = aux->edges.begin();
                 while(it2 != aux->edges.end()){
-                    if(temp.find(it2->vertexes[1]->data) == temp.end()){
-                        q.push(it2->vertexes[1]);                        
-                        temp.insert_or_assign(it2->vertexes[1]->data,it2->vertexes[1]->data);
+                    if(temp.find((*it2)->vertexes[1]->data) == temp.end()){
+                        q.push((*it2)->vertexes[1]);                        
+                        temp.insert_or_assign((*it2)->vertexes[1]->data,(*it2)->vertexes[1]->data);
                     }
                     it2++;                    
                 }
@@ -170,14 +170,14 @@ public:
         if(temp != this->vertexes.end()){
             cout<<temp->second->data;
             for(auto it = temp->second->edges.begin(); it != temp->second->edges.end(); it++){
-                cout<<" -["<<it->weight<<"]-> "<<it->vertexes[1]->data<<" ;";
+                cout<<" -["<<(*it)->weight<<"]-> "<<(*it)->vertexes[1]->data<<" ;";
             }
             cout<<endl;
         }
     }
 
     bool findById(string id){
-        return (this->vertexes.find() != this->vertexes.end());
+        return (this->vertexes.find(id) != this->vertexes.end());
     }
 
     void display(){
