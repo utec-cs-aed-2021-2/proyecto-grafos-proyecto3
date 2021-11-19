@@ -4,9 +4,9 @@
 --------
 
 ## Integrantes
-- 
-- 
-- 
+- Jose Rene Bojorquez Samame
+- Alejandro Joel Bojorquez Samame
+- Diego Agustín Galván Rodriguez
 
 ----
 
@@ -110,3 +110,6 @@ void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed da
 
 
 > **PD:** Puntos extras sobre Evaluación Continua si se implementa una GUI.
+
+Nota:
+Para esta entrega no pudimos hacer los algoritmos de Kruskal o Prim. Nuestro grupo se compromete a presentarlos en la siguiente entrega con su respectivo tester.
