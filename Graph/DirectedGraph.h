@@ -61,7 +61,7 @@ public:
         return false;      
     }
 
-    TE operator()(string start, string end){
+    TE &operator()(string start, string end){
         auto temp1 = this->vertexes.find(start);
         auto temp2 = this->vertexes.find(end);
         if(temp1 != this->vertexes.end() && temp2 != this->vertexes.end()){
@@ -71,7 +71,7 @@ public:
                 }
             }
         }
-        return 0;
+        throw("not found");
     }
 
     float density(){
