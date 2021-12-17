@@ -111,7 +111,7 @@ TE &operator()(string start, string end):
 float density():
 ```
   * #### Descripcion: 
-    Método que permite calcular la densidad del grafo. 
+    Método que permite calcular la densidad del grafo. Para ello recorre todas las aristas del grafo y obtiene la cantidad de vértices. Dependiendo de si se trata de un grafo dirigido a uno no dirigido, la fórmula para calcular la densidad varía.
 
   * #### Parámetros: Ninguno
   * #### Return: 
@@ -123,7 +123,7 @@ float density():
 bool isDense(float threshold = 0.5):
 ```
   * #### Descripcion: 
-    Indica si el grafo es denso o no dependiendo del umbral ingresado como parámetro (por defecto es 0.5). 
+    Indica si el grafo es denso o no dependiendo del umbral ingresado como parámetro (por defecto es 0.5). Emplea la función density().
 
   * #### Parámetros: 
     * float threshold: Indica el umbral para considerar al grafo denso o no denso. 
@@ -136,7 +136,7 @@ bool isDense(float threshold = 0.5):
 bool isConnected():
 ```
   * #### Descripcion: 
-    Indica si el grafo es conexo. Para ello emplea una cola que irá eliminando los vértices visitados de esta y un unordered_map de vértices recorridos. Si dicho unordered_map tiene la misma cantidad de elementos que la cantidad de vértices del grafo, se tratará de un grafo conexo.
+    Indica si el grafo es conexo. Para ello emplea una cola que irá eliminando los vértices visitados de esta y un unordered_map de vértices recorridos. Se ingresará un primer vértice a una cola, luego se verifican los vértices adyacentes a este y se marcará el primer vértice como visitado. Los vértices adyacentes serán encolados en caso de que no hayan sido visitados anteriormente. Este proceso se repite hasta que la cola quede vacía. Si la cantidad de vértices marcados como visitados es igual a la cantidad de vértices totales del grafo, dicho grafo es conexo. 
 
   * #### Parámetros:  Ninguno 
   * #### Return:
@@ -145,7 +145,7 @@ bool isConnected():
   * #### Consideraciones: Ninguna 
   ##
 ```cpp
-bool isStronglyConnected() throw():
+bool isStronglyConnected():
 ```
   * #### Descripcion: 
     Indica si el grafo es fuertemente conexo. Para ello emplea una cola que irá eliminando los vértices visitados de esta y un unordered_map de vértices recorridos. Si dicho unordered_map tiene la misma cantidad de elementos que la cantidad de vértices del grafo, se tratará de un grafo conexo.
@@ -335,52 +335,56 @@ Para la lectura de datos de un archivo .json, se utilizo la libreria jsoncpp, se
 
 ### Methods:
 ```cpp
-void clear(); 
+void clear(); // Clears parser saved atributes
 ```
   * #### Descripcion:   
     Funcion que elimina todos los datos guardados en la clase parser 
 
   * #### Parámetros:
-    * Ninguno 
+    * none  
   * #### Return: 
-    * Ninguno 
-  * #### Consideraciones: Ninguno
+    *none 
+  * #### Consideraciones: 
+  none
 
 ```cpp
-void read_JSON_file();
+void read_JSON_file(); // Parses JSON file and saves data into class
 ```
   * #### Descripcion:   
     Funcion que lee los datos del archivo json y guarda los datos dentro de la clase parser
 
   * #### Parámetros:
-    * Ninguno 
+    * none  
   * #### Return: 
-    * Ninguno
-  * #### Consideraciones: El archivo json se puede seleccionar dentro del parser.h
+    *none 
+  * #### Consideraciones: 
+  El archivo json se puede seleccionar dentro del parser.h
 
 ```cpp
-void uGraphMake(UndirectedGraph<string, double> &tempGraph); 
+void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified undirected graph
 ```
   * #### Descripcion:   
-    Funcion que acepta un grafo indirecto(de preferencia vacio) y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
+    Funcion que acepta un grafo indirecto vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
 
   * #### Parámetros:
     * UndirectedGraph<string, double> &tempGraph : Grafo indirecto en donde se van a guardar los datos del parser.
   * #### Return: 
-    * Ninguno
-  * #### Consideraciones: Ninguno
+    *none 
+  * #### Consideraciones: 
+  none
 
 ```cpp
-void dGraphMake(DirectedGraph<string, double> &tempGraph); ¿
+void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified directed graph
 ```
   * #### Descripcion:   
-    Funcion que acepta un grafo directo(de preferencia vacio) y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
+    Funcion que acepta un grafo directo vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
 
   * #### Parámetros:
     * DirectedGraph<string, double> &tempGraph : Grafo directo en donde se van a guardar los datos del parser.
   * #### Return: 
-    * Ninguno
-  * #### Consideraciones: Ninguno
+    *none 
+  * #### Consideraciones: 
+  none
 
 ## [Git Karma Guidelines](http://karma-runner.github.io/5.2/dev/git-commit-msg.html)
 
