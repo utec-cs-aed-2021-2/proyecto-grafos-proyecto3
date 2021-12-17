@@ -234,7 +234,7 @@ UndirectedGraph<TV, TE> apply():
   * #### Return: 
     * UndirectedGraph<TV,TE>: Retorna el MST dentro de un objeto de clase UndirectedGraph
   * #### Consideraciones: Retorna el MST correcto solo si ya se ha ejecutado el constructor con la dirección de memoria del grafo como parámetro. 
-```
+
 -----
 ### A* Algorithm
 
