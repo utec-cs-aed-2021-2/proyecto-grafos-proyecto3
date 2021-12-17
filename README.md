@@ -95,7 +95,7 @@ bool deleteEdge(string start, string end):
 TE &operator()(string start, string end):
 ```
   * #### Descripcion: 
-    Indica el valor de la arista que une los vértices correspondientes a las keys ingresadas como parámetros
+    Indica el valor de la arista que une los vértices correspondientes a las keys ingresadas como parámetros. Para ello recorre los vértices relacionados con el vértice vinculado a la key "start" ingresada como parámetro, luego busca la arista cuyos extremos sean los vértices ingresados. Finalmente retorna el paso de dicha arista.
 
   * #### Parámetros:
     * string start: Indicar las key correspondiente al vértice que actúa como origen de la arista.
