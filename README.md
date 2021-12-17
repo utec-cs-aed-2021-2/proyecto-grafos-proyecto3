@@ -319,6 +319,7 @@ Para la lectura de datos de un archivo .json, se utilizo la libreria jsoncpp, se
 ### Methods:
 ```cpp
 void clear(); // Clears parser saved atributes
+```
   * #### Descripcion:   
     Funcion que elimina todos los datos guardados en la clase parser 
 
@@ -330,6 +331,7 @@ void clear(); // Clears parser saved atributes
   none
 
 void read_JSON_file(); // Parses JSON file and saves data into class
+```
   * #### Descripcion:   
     Funcion que lee los datos del archivo json y guarda los datos dentro de la clase parser
 
@@ -341,6 +343,7 @@ void read_JSON_file(); // Parses JSON file and saves data into class
   El archivo json se puede seleccionar dentro del parser.h
 
 void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified undirected graph
+```
   * #### Descripcion:   
     Funcion que acepta un grafo indirecto vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
 
@@ -353,6 +356,7 @@ void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed 
 
 
 void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified directed graph
+```
   * #### Descripcion:   
     Funcion que acepta un grafo directo vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
 
