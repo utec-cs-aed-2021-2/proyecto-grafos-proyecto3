@@ -288,19 +288,55 @@ TE** FloydWarshall():
 
 ## JSON file parser
 * Construye un grafo a partir de una archivo JSON de aereopuertos del mundo. 
+Para la lectura de datos de un archivo .json, se utilizo la libreria jsoncpp, se creo una clase parser que almacenaria los datos cargados del archivo .json y podran ser introducidos a un grafo vacio, sea directo o indirecto.  
 
 
 ### Methods:
 ```cpp
 void clear(); // Clears parser saved atributes
+  * #### Descripcion:   
+    Funcion que elimina todos los datos guardados en la clase parser 
 
-void readJSON(); // Parses JSON file and saves data into class
-// NOTE: each derived class has its own readJSON method
+  * #### Parámetros:
+    * none  
+  * #### Return: 
+    *none 
+  * #### Consideraciones: 
+  none
+
+void read_JSON_file(); // Parses JSON file and saves data into class
+  * #### Descripcion:   
+    Funcion que lee los datos del archivo json y guarda los datos dentro de la clase parser
+
+  * #### Parámetros:
+    * none  
+  * #### Return: 
+    *none 
+  * #### Consideraciones: 
+  El archivo json se puede seleccionar dentro del parser.h
 
 void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified undirected graph
+  * #### Descripcion:   
+    Funcion que acepta un grafo indirecto vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
+
+  * #### Parámetros:
+    * UndirectedGraph<string, double> &tempGraph : Grafo indirecto en donde se van a guardar los datos del parser.
+  * #### Return: 
+    *none 
+  * #### Consideraciones: 
+  none
+
 
 void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified directed graph
-```
+  * #### Descripcion:   
+    Funcion que acepta un grafo directo vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
+
+  * #### Parámetros:
+    * DirectedGraph<string, double> &tempGraph : Grafo directo en donde se van a guardar los datos del parser.
+  * #### Return: 
+    *none 
+  * #### Consideraciones: 
+  none
 
 ## [Git Karma Guidelines](http://karma-runner.github.io/5.2/dev/git-commit-msg.html)
 
