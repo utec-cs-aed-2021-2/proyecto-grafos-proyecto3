@@ -220,11 +220,24 @@ UndirectedGraph<char, int> result = prim.apply();//return a tree
 ```
 -----
 ### A* Algorithm
+
+Es un algoritmo que permite encontrar el camino más corto entre dos vértices. Para hallar dicho camino, utiliza los pesos de las aristas y las heurísticas definidas para los vértices.
 ```cpp
 //3- A *
-AStar<char, int> astar(&graph, "A", "Z", vector<int> heuristics);
-UndirectedGraph<char, int> result = astar.apply();
+AStar<TV, TE> astar(DirectedGraph<TV,TE> graph, string start, string end, vector<TE> heuristics);
+DirectedGraph<TV, TE> result = astar.apply();
 ```
+  * #### Descripcion:   
+    Encuentra el camino más corto entre dos vértices. Fue implementado como una clase que posee un Grafo como atributo, al cual se insertan los vértices y las aristas del camino más corto según los pesos y las heurísticas. Para obtener dicho grafo se utiliza el método apply().
+
+  * #### Parámetros:
+    * DirectedGraph<TV,TE> graph: Grafo base sobre el cual se aplicará el algoritmo.
+    * string start: id del vértice origen desde el que se empezará el camino.
+    * string end: id del vértice destino al cual se desea llegar.
+    * vector<TE> heuristics: vector que contiene las heurísticas definidas para aplicar el algoritmo.  
+  * #### Return: 
+    * DirectedGraph<TV, TE> : Cuando se utiliza el método apply, retorna el grafo que contiene los vértices y las aristas del camino definido en el constructor de la clase AStar. 
+  * #### Consideraciones: Solo se implementó el algoritmo para grafos dirigidos. El algoritmo no funcionará si no existe un camino entre ambos vértices.
 -----
 ### Dijkstra Algorithm
 
@@ -278,14 +291,26 @@ TE** FloydWarshall():
   * #### Consideraciones: Ninguna.
   
 -----
-### Best BFS
+### BFS
+ 
+ Es un algoritmo que recorre todos los vértices partiendo desde uno definido. Empieza recorriendo los adyacentes al inicial, luego los adyacentes de estos y así sucesivamente.
+
+```cpp
+BFS<TV, TE> bfs(DirectedGraph<TV,TE> graph, string start);
+DirectedGraph<TV, TE> result = bfs.apply();
+```
+  * #### Descripcion:   
+    Recorre todos los vértices del grafo empezando desde un vértice en específico. Fue implementado como una clase que posee un Grafo como atributo, al cual se insertan todos los vértices del grafo original y las aristas que se utilizaron para recorrerlos. Para obtener dicho grafo se utiliza el método apply().
+
+  * #### Parámetros:
+    * DirectedGraph<TV,TE> graph: Grafo base sobre el cual se aplicará el algoritmo.
+    * string start: id del vértice origen desde el que se empezará el recorrido.
+  * #### Return: 
+    * DirectedGraph<TV, TE> : Cuando se utiliza el método apply, retorna el grafo que contiene los vértices y las aristas insertadas en el constructor de la clase BFS. 
+  * #### Consideraciones: Solo se implementó el algoritmo para grafos dirigidos. El algoritmo no recorrerá todos los vértices si no existe un camino entre el inicial y alguno de los demás.
+
+
 -----
-### Best DFS 
------
-
-
-
-
 ## JSON file parser
 * Construye un grafo a partir de una archivo JSON de aereopuertos del mundo. 
 
