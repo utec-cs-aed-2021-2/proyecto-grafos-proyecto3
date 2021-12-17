@@ -212,11 +212,28 @@ UndirectedGraph<TV, TE> apply():
 
 -----
 ### Prim Algorithm:
+Este algoritmo voraz o goloso genera el MST (árbol de expansión mínima) para un grafo. Este algoritmo solo funciona en grafos NO dirigidos. Para ello se ha creado una clase prim en cuyo constructor se realiza el algoritmo. Cuando se desea retornar el MST, se llama a la función apply() correspondiente a la clase prim el cual retornará un grafo no dirigido con el MST.
 ```cpp
-//2- Generates a MST graph using the Prim approach (only for undirected graphs)
+prim<strign, double> prim(&graph):
+```
 
-Prim<char, int> prim(&graph, "A");
-UndirectedGraph<char, int> result = prim.apply();//return a tree
+* #### Descripcion: 
+    Constructor de la clase prim. Es en este constructor en el cual se ejecuta el algoritmo. Dicho de otro modo, en un objeto prim se guardarán las aristas y vértices correspondientes al árbol de expansión mínima del grafo que se inserta como parámetro.
+
+  * #### Parámetros:  Puntero a grafo o dirección de este. 
+  * #### Return: Ninguno
+  * #### Consideraciones: Realiza el algoritmo pero no retorna el MST.
+##
+```cpp
+UndirectedGraph<TV, TE> apply():
+``` 
+  * #### Descripcion:   
+    Constructor de la clase prim. Es en este constructor en el cual se ejecuta el algoritmo. Dicho de otro modo, en un objeto prim se guardarán las aristas y vértices correspondientes al árbol de expansión mínima del grafo que se inserta como parámetro.
+
+  * #### Parámetros: Ninguno. 
+  * #### Return: 
+    * UndirectedGraph<TV,TE>: Retorna el MST dentro de un objeto de clase UndirectedGraph
+  * #### Consideraciones: Retorna el MST correcto solo si ya se ha ejecutado el constructor con la dirección de memoria del grafo como parámetro. 
 ```
 -----
 ### A* Algorithm
