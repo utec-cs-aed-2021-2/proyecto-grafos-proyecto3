@@ -335,56 +335,52 @@ Para la lectura de datos de un archivo .json, se utilizo la libreria jsoncpp, se
 
 ### Methods:
 ```cpp
-void clear(); // Clears parser saved atributes
+void clear(); 
 ```
   * #### Descripcion:   
     Funcion que elimina todos los datos guardados en la clase parser 
 
   * #### Parámetros:
-    * none  
+    * Ninguno 
   * #### Return: 
-    *none 
-  * #### Consideraciones: 
-  none
+    * Ninguno 
+  * #### Consideraciones: Ninguno
 
 ```cpp
-void read_JSON_file(); // Parses JSON file and saves data into class
+void read_JSON_file();
 ```
   * #### Descripcion:   
     Funcion que lee los datos del archivo json y guarda los datos dentro de la clase parser
 
   * #### Parámetros:
-    * none  
+    * Ninguno 
   * #### Return: 
-    *none 
-  * #### Consideraciones: 
-  El archivo json se puede seleccionar dentro del parser.h
+    * Ninguno
+  * #### Consideraciones: El archivo json se puede seleccionar dentro del parser.h
 
 ```cpp
-void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified undirected graph
+void uGraphMake(UndirectedGraph<string, double> &tempGraph); 
 ```
   * #### Descripcion:   
-    Funcion que acepta un grafo indirecto vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
+    Funcion que acepta un grafo indirecto(de preferencia vacio) y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
 
   * #### Parámetros:
     * UndirectedGraph<string, double> &tempGraph : Grafo indirecto en donde se van a guardar los datos del parser.
   * #### Return: 
-    *none 
-  * #### Consideraciones: 
-  none
+    * Ninguno
+  * #### Consideraciones: Ninguno
 
 ```cpp
-void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified directed graph
+void dGraphMake(DirectedGraph<string, double> &tempGraph); ¿
 ```
   * #### Descripcion:   
-    Funcion que acepta un grafo directo vacio y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
+    Funcion que acepta un grafo directo(de preferencia vacio) y genera todos los vertices y aristas en este con los datos del json guardados en la clase parser
 
   * #### Parámetros:
     * DirectedGraph<string, double> &tempGraph : Grafo directo en donde se van a guardar los datos del parser.
   * #### Return: 
-    *none 
-  * #### Consideraciones: 
-  none
+    * Ninguno
+  * #### Consideraciones: Ninguno
 
 ## [Git Karma Guidelines](http://karma-runner.github.io/5.2/dev/git-commit-msg.html)
 
