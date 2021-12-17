@@ -330,6 +330,7 @@ void clear(); // Clears parser saved atributes
   * #### Consideraciones: 
   none
 
+```cpp
 void read_JSON_file(); // Parses JSON file and saves data into class
 ```
   * #### Descripcion:   
@@ -342,6 +343,7 @@ void read_JSON_file(); // Parses JSON file and saves data into class
   * #### Consideraciones: 
   El archivo json se puede seleccionar dentro del parser.h
 
+```cpp
 void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified undirected graph
 ```
   * #### Descripcion:   
@@ -354,7 +356,7 @@ void uGraphMake(UndirectedGraph<string, double> &tempGraph); // Adds the parsed 
   * #### Consideraciones: 
   none
 
-
+```cpp
 void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified directed graph
 ```
   * #### Descripcion:   
